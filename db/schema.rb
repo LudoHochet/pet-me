@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_02_17_160814) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,4 +84,5 @@ ActiveRecord::Schema.define(version: 2020_02_17_160814) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "pets"
   add_foreign_key "bookings", "users"
+  add_foreign_key "pets", "users"
 end

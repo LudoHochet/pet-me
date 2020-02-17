@@ -5,5 +5,4 @@ class Pet < ApplicationRecord
   validates :description, presence: true
   validates :species, presence: true, inclusion: { in: SPECIES }
   validates :price, presence: true
-  validates :photo, presence: true
 end

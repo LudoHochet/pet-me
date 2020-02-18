@@ -1,20 +1,25 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3299901/pexels-photo-3299901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-  <div class="container relative">
-    <h1>Pet me !</h1>
-    <p>
-      <span id="banner-typed-text"></span>
-    </p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.pexels.com/photos/3299901/pexels-photo-3299901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div class="banner-text">
+    <div class="container relative">
+      <div class="banner-title">
+        <h1>Pet me !</h1>
+        <p>
+          <span id="banner-typed-text"></span>
+        </p>
+      </div>
 
-  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-    <div class="search-form-control form-group d-flex">
-      <input class="form-control string required custom" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
+      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div class="search-form-control form-group d-flex">
+          <input class="form-control string required species" type="text" name="search[query]" id="search_query" placeholder="Pick species" />
+          <input class="form-control string required start-date" type="text" name="search[query]" id="search_query" placeholder="Start date" />
+          <input class="form-control string required end-date" type="text" name="search[query]" id="search_query" placeholder="End date" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
-
   </div>
 </div>
 

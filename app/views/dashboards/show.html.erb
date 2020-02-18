@@ -2,7 +2,14 @@
 <h2>my pets</h2>
 
 <% @pets.each do |pet| %>
-<li><%= pet.name %></li>
+<li>
+  <%= link_to pet.name.capitalize, pet_path(pet) %>
+  <%= link_to pet_path(pet), method: :delete do %>
+        <i class="fas fa-minus"></i>
+      <% end %>
+    <%= link_to "dispo/indispo", switch_pets_status_path(pet), method: :patch %>
+</li>
+<%= pet.status %>
 <% end %>
 
 <h2>my rented pets</h2>

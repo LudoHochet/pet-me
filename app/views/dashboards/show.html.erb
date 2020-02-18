@@ -6,27 +6,35 @@
 <% end %>
 
 <h2>my rented pets</h2>
-<% @my_rented_pets.each do |rent| %>
 
     <h5>bookings acceptied</h5>
-      <% if rent.status %>
-        <i class="fas fa-check-circle"></i>
-        rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
-        <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
-        <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
-        <%= rent.status %>
+      <% @my_rented_pets.each do |rent| %>
+        <% if rent.status %>
+          <li>
+            <i class="fas fa-check-circle text-success"></i>
+            rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+            <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
+            <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
+            <%= rent.status %>
+          </li>
+        <% end %>
       <% end %>
 
     <h5>bookings pending</h5>
-      <% if rent.status == false %>
-        rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
-        <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
-        <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
-        <%= rent.status %>
+      <% @my_rented_pets.each do |rent| %>
+        <% if rent.status == false %>
+          <li>
+            <i class="fas fa-check-circle text-danger"></i>
+            rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+            <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
+            <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
+            <%= rent.status %>
+          </li>
+        <% end %>
       <% end %>
 
 
-<% end %>
+
 
 <h2>my bookings</h2>
 <% @my_bookings.each do |booking| %>

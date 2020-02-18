@@ -8,21 +8,22 @@
 <h2>my rented pets</h2>
 <% @my_rented_pets.each do |rent| %>
 
-    <% if rent.status %>
-      <h5>bookings acceptied</h5>
+    <h5>bookings acceptied</h5>
+      <% if rent.status %>
+        <i class="fas fa-check-circle"></i>
+        rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+        <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
+        <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
+        <%= rent.status %>
+      <% end %>
 
-      <i class="fas fa-check-circle"></i>
-      rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
-      <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
-      <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
-      <%= rent.status %>
-    <% else %>
-      <h5>bookings pending</h5>
-      rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
-      <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
-      <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
-      <%= rent.status %>
-    <% end %>
+    <h5>bookings pending</h5>
+      <% if rent.status == false %>
+        rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+        <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
+        <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
+        <%= rent.status %>
+      <% end %>
 
 
 <% end %>

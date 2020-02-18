@@ -20,14 +20,11 @@ def create
   else
     render :new
   end
-
-
 end
 
 private
-
-def pets_params
-  params.require(:pet).permit(:name, :description, :price, :pedigree, :species, :skill, :photos)
-end
+  def pets_params
+    params.require(:pet).permit(:name, :description, :price, :pedigree, :species, :skill, photos: [])
+  end
 
 end

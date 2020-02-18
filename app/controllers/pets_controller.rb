@@ -35,10 +35,10 @@ class PetsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  private
 
+private
   def pets_params
-    params.require(:pet).permit(:name, :description, :price, :pedigree, :species, :skill, :photos)
+    params.require(:pet).permit(:name, :description, :price, :pedigree, :species, :skill, photos: [])
   end
 
 end

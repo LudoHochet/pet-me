@@ -1,0 +1,31 @@
+<h1><%= @user.first_name %></h1>
+<h2>my pets</h2>
+
+<% @pets.each do |pet| %>
+<li><%= pet.name %></li>
+<% end %>
+
+<h2>my rented pets</h2>
+<% @my_rented_pets.each do |rent| %>
+  <li>
+    <% if rent.status %>
+      <i class="fas fa-check-circle"></i>
+    <% end %>
+    rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+  <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
+  </li>
+<% end %>
+
+<h2>my bookings</h2>
+<% @my_bookings.each do |booking| %>
+<li>
+  <% if booking.status %>
+    <i class="fas fa-check-circle"></i>
+  <% end %>
+  <%= @user.first_name %> pet
+  <%= booking.pet.name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
+   to <%= booking.end_date.strftime("%m/%d/%Y") %>
+   from <%= booking.pet.user.first_name %>
+  </li>
+<% end %>
+

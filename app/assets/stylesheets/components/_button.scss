@@ -1,0 +1,16 @@
+.btn-flat {
+  color: white;
+  background: linear-gradient(to right, #F80759, #BC4E9C);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: normal;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    background-position: right center;
+    color: white;
+  }
+}
+

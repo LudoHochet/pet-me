@@ -2,6 +2,15 @@
 
 <%= @pet.name %>
 
-  <% @pet.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-  <% end %>
+<% @pet.photos.each do |photo| %>
+<%= cl_image_tag photo.key %>
+<% end %>
+
+
+<% @pet.bookings.each do |booking| %>
+<hr>
+Booked from
+<%= booking.start_date %>
+until
+<%= booking.end_date %>
+<% end %>

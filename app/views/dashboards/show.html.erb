@@ -1,5 +1,24 @@
-<h1><%= @user.first_name %></h1>
-<h2>my pets</h2>
+<div class="dashboard-title">
+  <h1> Welcome on your dashboard <%= @user.first_name %></h1>
+</div>
+
+<div class="dashboard-pets">
+  <h2>My pets</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%# @pets.each do |pet| %>
+      <div class="card-product">
+        <img src="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+        <div class="card-product-infos">
+          <h2><%= "(petname)" %></h2>
+          <p>Price</p>
+        </div>
+        <%# end %>
+      </div>
+  </div>
+</div>
 
 <% @pets.each do |pet| %>
 <li>
@@ -35,4 +54,3 @@
    from <%= booking.pet.user.first_name %>
   </li>
 <% end %>
-

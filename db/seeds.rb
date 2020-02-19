@@ -15,13 +15,14 @@ User.destroy_all
 
 puts "Creating users..."
 
+
 file1 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg/1200px-Poster-sized_portrait_of_Barack_Obama.jpg')
-user1 = User.new(password: "password", first_name: "Michel", last_name: "Chardou", address: "7 boulevard pasteur, 75015", telephone: "0654756435", description: "J'aime les chatons gris", email: "mich.chardou@gmail.com")
+user1 = User.new(password: "password", first_name: "Michel", last_name: "Chardou", address: "7 rue Pasteur, 75011 Paris", telephone: "0654756435", description: "J'aime les chatons gris", email: "mich.chardou@gmail.com")
 user1.photo.attach(io: file1, filename: 'michel.png', content_type: 'image/png')
-user2 = User.new(password: "password", first_name: "Hélène", last_name: "Elegarsson", address: "134 rue du faubourg saint-martin, paris", telephone: "0654456015", description: "Amie des bêtes à poils", email: "h.e@gmail.com")
-user3 = User.new(password: "password", first_name: "Bertand", last_name: "Chouin", address: "2 passage du havre, paris", telephone: "0634567890", description: "Passioné de grenouilles", email: "bertrand.j@gmail.com")
-user4 = User.new(password: "password", first_name: "Ludovic", last_name: "Clochet", address: "1 avenue marceau, paris", telephone: "0612367891", description: "Cherche perruche à chouchouter", email: "ludo.cloclo@gmail.com")
-user5 = User.new(password: "password", first_name: "Pierre", last_name: "Présent", address: "12 rue des ternes, paris", telephone: "0612345678", description: "Aficionado de caniches egyptiens", email: "pierre.present@gmail.com")
+user2 = User.new(password: "password", first_name: "Hélène", last_name: "Elegarsson", address: "23 rue Saint-Maur, 75011 Paris", telephone: "0654456015", description: "Amie des bêtes à poils", email: "h.e@gmail.com")
+user3 = User.new(password: "password", first_name: "Bertand", last_name: "Chouin", address: "98 avenue de la République, 75011 Paris", telephone: "0634567890", description: "Passioné de grenouilles", email: "bertrand.j@gmail.com")
+user4 = User.new(password: "password", first_name: "Ludovic", last_name: "Clochet", address: "102 rue de Ménilmontant, 75020 Paris", telephone: "0612367891", description: "Cherche perruche à chouchouter", email: "ludo.cloclo@gmail.com")
+user5 = User.new(password: "password", first_name: "Pierre", last_name: "Présent", address: "5 rue des Nanettes, 75011 Paris", telephone: "0612345678", description: "Aficionado de caniches egyptiens", email: "pierre.present@gmail.com")
 
 
 [ user1, user2, user3, user4, user5 ].each do |user|

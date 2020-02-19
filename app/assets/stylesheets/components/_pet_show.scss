@@ -1,12 +1,33 @@
 .pet-show-background {
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-  // background-image: linear-gradient(to top, #f80759 20%, #bc4E9c 20%);
-  padding: 40px;
+  //background-image: linear-gradient(to top, $redpet 20%, $pinkpet 20%);
+  // background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  background-image: linear-gradient(to top, #f80759 0%, #bc4E9c 80%);
+  padding: 40px 40px;
+  margin: 0;
 }
 
 .pet-show {
   h2 {
     color: $petpink;
+    font-weight: bold;
+  }
+  dl {
+    font-size: 16px;
+    dt {
+      margin-bottom: 1em;
+    }
+    dd {
+      margin-bottom: 0;
+    }
+  }
+  a {
+    color: $petpink;
+    font-weight: bold;
+    &:hover {
+      color: $petred;
+      font-weight: bold;
+      text-decoration: none;
+    }
   }
   background-color: white;
   border-radius: 20px;
@@ -17,7 +38,12 @@
 .pet-description {
 
 }
-
+#carouselExampleControls {
+  margin: 30px 0;
+  img {
+    border-radius: 20px;
+  }
+}
 .pet-show-booking {
 
  }

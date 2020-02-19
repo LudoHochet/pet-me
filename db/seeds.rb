@@ -6,17 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
 puts "Cleaning database..."
 Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
 
 puts "Creating users..."
+
+file1 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Poster-sized_portrait_of_Barack_Obama.jpg/1200px-Poster-sized_portrait_of_Barack_Obama.jpg')
 user1 = User.new(password: "password", first_name: "Michel", last_name: "Chardou", address: "7 boulevard pasteur, 75015", telephone: "0654756435", description: "J'aime les chatons gris", email: "mich.chardou@gmail.com")
-user2 = User.new(password: "password", first_name: "Hélène", last_name: "Elegarsson", address: "10 rue de la liberté, 75011", telephone: "0654456015", description: "Amie des bêtes à poils", email: "h.e@gmail.com")
-user3 = User.new(password: "password", first_name: "Bertand", last_name: "Chouin", address: "2 passage du gars, 75002", telephone: "0634567890", description: "Passioné de grenouilles", email: "bertrand.j@gmail.com")
-user4 = User.new(password: "password", first_name: "Ludovic", last_name: "Clochet", address: "1 avenue miterrand, 75001", telephone: "0612367891", description: "Cherche perruche à chouchouter", email: "ludo.cloclo@gmail.com")
-user5 = User.new(password: "password", first_name: "Pierre", last_name: "Présent", address: "12 rue de ternes, 75010", telephone: "0612345678", description: "Aficionado de caniches egyptiens", email: "pierre.present@gmail.com")
+user1.photo.attach(io: file1, filename: 'michel.png', content_type: 'image/png')
+user2 = User.new(password: "password", first_name: "Hélène", last_name: "Elegarsson", address: "134 rue du faubourg saint-martin, paris", telephone: "0654456015", description: "Amie des bêtes à poils", email: "h.e@gmail.com")
+user3 = User.new(password: "password", first_name: "Bertand", last_name: "Chouin", address: "2 passage du havre, paris", telephone: "0634567890", description: "Passioné de grenouilles", email: "bertrand.j@gmail.com")
+user4 = User.new(password: "password", first_name: "Ludovic", last_name: "Clochet", address: "1 avenue marceau, paris", telephone: "0612367891", description: "Cherche perruche à chouchouter", email: "ludo.cloclo@gmail.com")
+user5 = User.new(password: "password", first_name: "Pierre", last_name: "Présent", address: "12 rue des ternes, paris", telephone: "0612345678", description: "Aficionado de caniches egyptiens", email: "pierre.present@gmail.com")
 
 
 [ user1, user2, user3, user4, user5 ].each do |user|
@@ -27,7 +32,11 @@ puts "Finished!"
 
 
 puts "Creating pets..."
+file2 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/03/29/cover-r4x3w1000-58dbbd655242b-capture-d-e-cran-2017-03-29-a-15-55-40.png')
+file3 = URI.open('https://www.sciencesetavenir.fr/assets/img/2020/01/17/cover-r4x3w1000-5e21bf77a1547-chartreux-3298051-1920.jpg')
 pet1 = Pet.new(name: "Patatra", description: "Chat blanc doux et calin", species: "cat", price: "600€")
+pet1.photos.attach(io: file2, filename: 'patatra.png', content_type: 'image/png')
+pet1.photos.attach(io: file3, filename: 'patatra2.png', content_type: 'image/png')
 pet1.user = user1
 pet2 = Pet.new(name: "Bouloche", description: "Chien ténébreux", species: "dog", price: "200€")
 pet2.user = user2

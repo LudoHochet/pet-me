@@ -27,8 +27,12 @@
         <i class="fas fa-minus"></i>
       <% end %>
     <%= link_to "dispo/indispo", switch_pets_status_path(pet), method: :patch %>
+    <% if pet.status %>
+        <i class="fas fa-check-circle text-danger"></i>
+      <% else %>
+        <i class="fas fa-check-circle text-success"></i>
+    <% end %>
 </li>
-<%= pet.status %>
 <% end %>
 
 <h2>my rented pets</h2>

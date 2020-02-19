@@ -61,9 +61,12 @@ booking4.pet = pet4
 booking5 = Booking.new(status: false, start_date: 20200110, end_date: 20200112)
 booking5.user = user1
 booking5.pet = pet5
+booking6 = Booking.new(status: false, start_date: 20200220, end_date: 20200223)
+booking6.user = user4
+booking6.pet = pet1
 
 
-[ booking1, booking2, booking3, booking4, booking5 ].each do |booking|
+[ booking1, booking2, booking3, booking4, booking5, booking6 ].each do |booking|
   booking.save!
   puts "Created #{booking.status}"
 end

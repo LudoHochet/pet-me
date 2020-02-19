@@ -9,7 +9,7 @@
 
   <div class="row">
     <% @pets.each do |pet| %>
-      <div class="card-product mt-3">
+      <div class="card-product mt-3 mr-3">
         <img src="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
         <div class="card-product-infos">
           <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
@@ -44,30 +44,33 @@
       <h3>My booking requests</h3>
   </div>
 
+    <div class="card-rented mt-3">
       <h5>Pending</h5>
         <% @my_rented_pets.each do |rent| %>
           <% if rent.status == false %>
             <li>
               <i class="fas fa-check-circle text-danger"></i>
-              rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+              Rented <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
               <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
               <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
               <%= rent.status %>
             </li>
           <% end %>
         <% end %>
+          <br>
       <h5>Accepted</h5>
         <% @my_rented_pets.each do |rent| %>
           <% if rent.status %>
             <li>
               <i class="fas fa-check-circle text-success"></i>
-              rent <%= rent.pet.name %> to <%= rent.user.first_name %> from
+              Rented <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
               <%= rent.start_date.strftime %> to <%= rent.end_date.strftime %>
               <%= link_to "accept/denied", switch_bookings_status_path(rent), method: :patch %>
               <%= rent.status %>
             </li>
           <% end %>
         <% end %>
+    </div>
 </div>
 
 <div class="container mt-4">
@@ -75,15 +78,17 @@
     <h3>My own bookings</h3>
   </div>
 
-  <% @my_bookings.each do |booking| %>
-  <li>
-    <% if booking.status %>
-      <i class="fas fa-check-circle"></i>
+  <div class="card-bookings mt-3">
+    <% @my_bookings.each do |booking| %>
+    <li>
+      <% if booking.status %>
+        <i class="fas fa-check-circle"></i>
+      <% end %>
+      <%= @user.first_name %> pet
+      <%= booking.pet.name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
+       to <%= booking.end_date.strftime("%m/%d/%Y") %>
+       from <%= booking.pet.user.first_name %>
+      </li>
     <% end %>
-    <%= @user.first_name %> pet
-    <%= booking.pet.name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
-     to <%= booking.end_date.strftime("%m/%d/%Y") %>
-     from <%= booking.pet.user.first_name %>
-    </li>
-  <% end %>
+  </div>
 </div>

@@ -90,6 +90,26 @@ img {
 }
 
 
+
+.card-rented {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 800px;
+  padding: 30px;
+}
+
+.card-bookings {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 800px;
+  padding: 30px;
+}
+
+
 // --------------------------------------------  effacer ci-dessous ::
 .cards {
   display: grid;

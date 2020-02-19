@@ -30,10 +30,6 @@
 
     <div class="card-trip col-md-4 col-lg-3 m-3">
       <%= cl_image_tag pet.photos.first.key %>
-      <div>
-        <%= cl_image_tag pet.user.photo.key, class: "avatar"%>
-
-      </div>
       <div class="card-trip-infos">
         <div>
           <h2><%= pet.name.capitalize %></h2>

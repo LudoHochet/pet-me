@@ -23,13 +23,17 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import "bootstrap";
 
 import { loadDynamicBannerText } from '../components/banner';
 
+import { initMapbox } from '../plugins/init_mapbox';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
+  initMapbox();
   loadDynamicBannerText();
 });

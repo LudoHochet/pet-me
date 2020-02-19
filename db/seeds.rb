@@ -38,15 +38,35 @@ pet1 = Pet.new(name: "Patatra", description: "Chat blanc doux et calin", species
 pet1.photos.attach(io: file2, filename: 'patatra.png', content_type: 'image/png')
 pet1.photos.attach(io: file3, filename: 'patatra2.png', content_type: 'image/png')
 pet1.user = user1
+
+file4 = URI.open('https://static.wamiz.fr/images/news/facebook/article/chien-os-fb-594cdb7b3d78d.jpg')
+file5 = URI.open('https://www.wanimo.com/veterinaire/wp-content/uploads/2011/06/images_articles_chien_chien-pate-blessee.jpg')
 pet2 = Pet.new(name: "Bouloche", description: "Chien ténébreux", species: "dog", price: "200€")
+pet2.photos.attach(io: file4, filename: 'bouloche.png', content_type: 'image/png')
+pet2.photos.attach(io: file5, filename: 'bouloche2.png', content_type: 'image/png')
 pet2.user = user2
+
+file6 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Mouse-19-Dec-2004.jpg/520px-Mouse-19-Dec-2004.jpg')
+file7 = URI.open('https://produit-antinuisible.com/img/cms/souris-grise-souris-domestique.jpg')
 pet3 = Pet.new(name: "Wanchi", description: "Souris verte qui aime courir dans l'herbe", species: "mouse", price: "50€")
+pet3.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
+pet3.photos.attach(io: file7, filename: 'wanchi2.png', content_type: 'image/png')
 pet3.user = user3
+
+file8 = URI.open('https://static.actu.fr/uploads/2019/05/vache-Pixabay-854x528.jpg')
+file9 = URI.open('https://img.bfmtv.com/c/1256/708/a053005f3/fa2ae1e43b83eee10a09649.jpg')
 pet4 = Pet.new(name: "Coco", description: "Vache qui aime rire", species: "dog", price: "500€")
 pet4.user = user4
-pet5 = Pet.new(name: "Cookie", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "150€")
-pet5.user = user5
+pet4.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
+pet4.photos.attach(io: file9, filename: 'coco2.png', content_type: 'image/png')
 
+
+file10 = URI.open('https://www.zooplus.fr/magazine/wp-content/uploads/2018/10/american-pit-bull-terrier-im-grass-1024x682.jpg')
+file11= URI.open('https://storage.googleapis.com/stateless-lactualite-com/2016/05/pitbull-large.jpg')
+pet5 = Pet.new(name: "Cookie", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "150€")
+pet5.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
+pet5.photos.attach(io: file11, filename: 'coco.png', content_type: 'image/png')
+pet5.user = user5
 
 [ pet1, pet2, pet3, pet4, pet5 ].each do |pet|
   pet.save!

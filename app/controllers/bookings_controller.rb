@@ -31,11 +31,17 @@ class BookingsController < ApplicationController
     redirect_to pet_path(@booking.pet)
   end
 
+  def change_status
+    @booking = Booking.find(params[:id])
+    @booking.status = !@booking.status
+    @booking.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :price, :description)
   end
-
 end
 

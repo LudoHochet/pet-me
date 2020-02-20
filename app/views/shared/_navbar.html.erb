@@ -5,6 +5,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <% pending_bookings = 0 %>
+        <% all_bookings = Booking.where(pet_id: current_user.pet_ids) %>
+        <% pending_bookings = all_bookings.where(status: "pending").count %>
+        <% if pending_bookings > 0 %>
+          <%= pending_bookings %>
+        <% end %>
+
         <%= link_to "Rent my pet", new_pet_path, class: "btn btn-primary mr-5" %>
         <li class="nav-item active">
           <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
@@ -35,5 +42,4 @@
     </ul>
   </div>
 </div>
-
 

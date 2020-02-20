@@ -3,13 +3,11 @@
 <div class="form-container">
   <h1>Booking</h1>
   <%= simple_form_for [ @pet, @booking ] do |f| %>
-    Start date
+    Start date YYYY-MM-DD
     <%= f.input_field :start_date, as: :string, class: 'form-control datepicker' %>
-    End date
+    End date YYYY-MM-DD
     <%= f.input_field :end_date, as: :string, class: 'form-control datepicker' %>
-
-
-    <%= f.submit "Submit review", class: "btn btn-primary", pet_bookings_path %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
   <% end %>
 
 </div>

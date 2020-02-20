@@ -31,12 +31,6 @@ class BookingsController < ApplicationController
     redirect_to pet_path(@booking.pet)
   end
 
-  def change_status
-    @booking = Booking.find(params[:id])
-    @booking.status = !@booking.status
-    @booking.save
-    redirect_to dashboard_path
-  end
 
   def accept
     @booking = Booking.find(params[:id])

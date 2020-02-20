@@ -1,0 +1,14 @@
+
+
+<div class="form-container">
+  <h1>Booking</h1>
+  <%= simple_form_for [ @pet, @booking ] do |f| %>
+    <%= f.input :start_date, as: :text, input_html: {value: "2020-02-21"} %>
+    <%= f.input :end_date, as: :text, input_html: {value: "2020-02-24"} %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
+
+
+<%= link_to "New booking 1", pet_bookings_path %>

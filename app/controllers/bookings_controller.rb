@@ -5,15 +5,18 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @pet = Pet.find([params[:id]])
+
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
     @pet = Pet.find(params[:pet_id])
+    price = (@booking.end_date - @booking.start_date).to_i * @pet.price
+    @booking.price = price
     @booking.pet = @pet
-    @booking.status = false
+    @booking.status = 'pending'
     @booking.user = current_user
     if @booking.save
       redirect_to pet_path(@pet)

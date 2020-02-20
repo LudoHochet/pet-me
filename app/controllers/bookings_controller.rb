@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new
   end
 

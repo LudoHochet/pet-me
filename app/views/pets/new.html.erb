@@ -1,14 +1,22 @@
 <div class="form-container">
-  <h1>petnew</h1>
+  <h4 class="text-secondary">Share your passion :</h4>
+  <h1>Rent your pets !</h1>
       <%= simple_form_for @pet do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :pedigree %>
-      <%= f.input :skill %>
-      <%= f.input :species, collection: Pet::SPECIES %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-      <%= f.button :submit, "Add pet", class: 'btn btn-primary'%>
+        <%= f.input :name, :label => "Name of your pet:" %>
+        <%= f.input :description, :label => "Tell us a few words about your pet:"  %>
+        <div class="d-flex">
+          <div class="price-input mr-3">
+            <%= f.input :price, :label => "Daily rent (€):" %>
+          </div>
+          <%= f.input :species, as: :radio_buttons, collection: ['cat', 'dog', 'monkey', 'rabbit'], wrapper: :vertical_collection_inline %>
+        </div>
+        <div class="d-flex">
+          <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+        </div>
+          <%= f.button :submit, "Add pet", class: 'btn btn-primary'%>
   <% end %>
 
 </div>
+
+
+

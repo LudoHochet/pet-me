@@ -27,7 +27,11 @@
         <div class="row">
           <% @pets.each do |pet| %>
           <div class="card-product mt-3 mr-3">
-            <img src="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+            <% if pet.photos.attached? %>
+              <%= cl_image_tag pet.photos.first.key %>
+            <% else %>
+              <%= image_tag "pet-1" %>
+            <% end  %>
             <div class="card-product-infos">
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
               <p> <%= pet.price %> €</p>

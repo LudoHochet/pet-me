@@ -15,14 +15,16 @@
   <h5><%= @user.first_name %> has <%=  @user.pets.count%> pets:</h5>
   <ul class="userpetslist">
     <% @user.pets.each do |pet| %>
-      <li><%= pet.name %> (<%= pet.species %>)</li>
+      <li> <%= link_to pet.name.capitalize, pet_path(pet) %> (<%= pet.species %>)</li>
     <% end %>
   </ul>
 
   <p><em>Top pet care ! </em></p>
-  <p><em><%= @user.first_name %> is the coolest pet! </em></p>
-  <p><i class="fas fa-star"></i><i class="far fa-star"></i> </p>
-
+  <p><em><%= @user.first_name %> is the coolest pet owner EVER! </em></p>
+  <p><em>Never seen such a cool person, thank you <%= @user.first_name %> ! </em></p>
+  <div class="usernotes">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+  </div>
 </div>
 
 

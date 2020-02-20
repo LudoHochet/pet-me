@@ -21,16 +21,29 @@
 .userinfo {
   text-align: center;
   margin-top: 80px;
+  padding: 10px;
 }
 
 .userpetslist {
-  ul {
 list-style:none;
-margin-left:0;
-padding-left:0;
+padding-left: 0px;
+
 }
-li {
-margin-bottom:15px;/* à adapter */
-}
+.userpetslist a {
+text-decoration: none;
+color: $pink;
 }
 
+.userinfo i {
+color: $pink;
+font-size: 20px;
+margin: 5px;
+}
+
+.userinfo  p {
+margin-bottom: 1px;
+}
+
+.usernotes {
+  padding: 16px;
+}

@@ -1,0 +1,23 @@
+
+<div class="form-container">
+
+
+
+
+<%= cl_image_tag @user.photo.key, class: "avatar-large"  %>
+
+<h5><%= @user.first_name %></h5>
+<h3><%= @user.last_name %></h3>
+
+<h5><%= @user.first_name %> has <%=  @user.pets.count%> pets </h5>
+<% @user.pets.each do |pet| %>
+<p><%= pet.name %> - <%= pet.species %></p>
+
+<p>Top pet care ! </p>
+<p>etoiles </p>
+
+<% end %>
+
+
+
+</div>

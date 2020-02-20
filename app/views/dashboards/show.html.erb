@@ -9,8 +9,8 @@
         <i class="fas fa-exclamation-circle text-warning"></i>
         <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
         <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-        <%= link_to "accept", switch_bookings_accept_path%>
-        <%= link_to "deny", switch_bookings_deny_path%>
+        <%= link_to "accept", switch_bookings_accept_path(rent), method: :patch%>
+        <%= link_to "deny", switch_bookings_deny_path(rent), method: :patch%>
       </li>
   <% end %>
 <% end %>

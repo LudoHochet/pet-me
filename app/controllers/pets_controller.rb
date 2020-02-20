@@ -3,6 +3,8 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
 
+
+
   #   @user = current_user
   #   @users = User.geocoded # returns flats with coordinates
 

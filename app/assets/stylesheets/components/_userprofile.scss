@@ -1,0 +1,36 @@
+
+.profilecolor {
+  height: 180px;
+  background-color: #BC4E9C;
+}
+
+.profilecontainer {
+  width: 500px;
+  margin: 40px auto;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.profilephoto {
+  text-align: center;
+  position: relative;
+  top: 120px;
+}
+
+.userinfo {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.userpetslist {
+  ul {
+list-style:none;
+margin-left:0;
+padding-left:0;
+}
+li {
+margin-bottom:15px;/* à adapter */
+}
+}
+

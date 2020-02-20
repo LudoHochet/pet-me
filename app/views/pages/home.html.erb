@@ -28,14 +28,14 @@
   <h3> Some of our fabulous <strong>pets</strong></h3>
 </div>
 <br>
-<div class="container">
+<div class="container mx-auto">
   <div class="homewrapper">
     <% Pet.last(3).each do |pet| %>
       <div class="card-trip">
         <% if pet.photos.attached? %>
           <%= cl_image_tag pet.photos.first.key %>
         <% else %>
-          <%= image_tag "logo_PetMe_BD.png" %>
+          <%= image_tag "logo_pet_BD.png" %>
         <% end  %>
         <div class="card-trip-infos">
           <div>

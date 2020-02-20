@@ -3,7 +3,12 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
 
-
+    if params[:query].present?
+      sql_query = "species ILIKE :query"
+      @pets = Pet.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @pets = Pet.all
+    end
 
   #   @user = current_user
   #   @users = User.geocoded # returns flats with coordinates

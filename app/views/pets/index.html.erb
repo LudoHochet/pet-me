@@ -3,11 +3,10 @@
 
 <div class="my-5">
 
-  <div class="search-form-control form-group d-flex">
+<div class="search-form-control form-group d-flex">
 
     <%= form_tag pets_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
+    <%= text_field_tag :query, params[:query],
     class: "form-control",
       placeholder: "Find by species" %>
       <%= submit_tag "Search", class: "btn btn-flat" %>
@@ -18,9 +17,9 @@
   <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
     <div class="search-form-control form-group d-flex">
       <input class="form-control string required species" type="text" name="search[query]" id="search_query" placeholder="Pick species" />
-      <input class="form-control string required start-date" type="text" name="search[query]" id="search_query" placeholder="Start date" />
+<!--       <input class="form-control string required start-date" type="text" name="search[query]" id="search_query" placeholder="Start date" />
       <input class="form-control string required end-date" type="text" name="search[query]" id="search_query" placeholder="End date" />
-      <button name="button" type="submit" class="btn btn-flat">
+ -->      <button name="button" type="submit" class="btn btn-flat">
         <i class="fas fa-search"></i> Search
       </button>
     </div>
@@ -38,7 +37,7 @@
       <div class="container mx-auto">
         <div class="homewrapper-by-two">
 
-          <% Pet.all.each do |pet| %>
+          <% @pets.each do |pet| %>
 
           <div class="card-trip" style="width:300px">
             <% if pet.photos.attached? %>

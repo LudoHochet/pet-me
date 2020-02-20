@@ -2,21 +2,29 @@
   <h2> Welcome on your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
 
+
+
 <% @my_rented_pets.each do |rent| %>
   <% if rent.status == "pending" %>
-        <div class="col-sm-8">
-          <div class="alert-warning">
-            <i class="fas fa-exclamation-circle text-warning"></i>
-              <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-              <%= link_to "accept", switch_bookings_accept_path(rent), method: :patch %>
-              <%= link_to "deny", switch_bookings_deny_path(rent), method: :patch %>
+        <div class=container>
+          <div class="alert-warning  p-3 m-3 text-center">
+            <div class="d-flex justify-content-around align-items-center">
+              <div class="texte-alerte">
+              <i class="fas fa-exclamation-circle text-warning"></i>
+                <strong><%= rent.user.first_name %></strong> would like to rent <strong><%= rent.pet.name %></strong>
+                from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                <br>
+              </div>
+              <div class="boutons">
+                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch %>
+                <br>
+                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted", method: :patch %>
+              </div>
+            </div>
           </div>
         </div>
   <% end %>
 <% end %>
-
-
 
 
 

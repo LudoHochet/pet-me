@@ -76,22 +76,22 @@ end
 puts "Finished!"
 
 puts "Creating bookings..."
-booking1 = Booking.new(status: true, start_date: 20191208, end_date: 20191227)
+booking1 = Booking.new(status: "accept", start_date: 20191208, end_date: 20191227)
 booking1.user = user2
 booking1.pet = pet1
-booking2 = Booking.new(status: false, start_date: 20191229, end_date: 20200110)
+booking2 = Booking.new(status: "deny", start_date: 20191229, end_date: 20200110)
 booking2.user = user3
 booking2.pet = pet1
-booking3 = Booking.new(status: false, start_date: 20200201, end_date: 20200203)
+booking3 = Booking.new(status: "accept", start_date: 20200201, end_date: 20200203)
 booking3.user = user4
 booking3.pet = pet1
-booking4 = Booking.new(status: true, start_date: 20200217, end_date: 20200219)
+booking4 = Booking.new(status: "accept", start_date: 20200217, end_date: 20200219)
 booking4.user = user5
 booking4.pet = pet1
-booking5 = Booking.new(status: false, start_date: 20200120, end_date: 20200122)
+booking5 = Booking.new(status: "pending", start_date: 20200120, end_date: 20200122)
 booking5.user = user1
 booking5.pet = pet5
-booking6 = Booking.new(status: false, start_date: 20200220, end_date: 20200223)
+booking6 = Booking.new(status: "pending", start_date: 20200220, end_date: 20200223)
 booking6.user = user4
 booking6.pet = pet1
 

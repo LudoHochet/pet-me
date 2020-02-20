@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @user = current_user
     @users = User.geocoded # returns flats with coordinates
 
     @markers = @users.map do |user|

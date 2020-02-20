@@ -10,7 +10,7 @@
         <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
         <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
         <%= link_to "accept", switch_bookings_accept_path%>
-        <%= link_to "denied", switch_bookings_denied_path%>
+        <%= link_to "deny", switch_bookings_deny_path%>
       </li>
   <% end %>
 <% end %>
@@ -62,7 +62,7 @@
     <div class="card-rented mt-3">
       <h5>denied</h5>
         <% @my_rented_pets.each do |rent| %>
-          <% if rent.status == "denied" %>
+          <% if rent.status == "deny" %>
             <li>
               <i class="fas fa-times-circle text-danger"></i>
               Refuse <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from

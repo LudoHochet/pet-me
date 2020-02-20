@@ -15,6 +15,10 @@
   <% end %>
 <% end %>
 
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -28,7 +32,7 @@
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
               <p> <%= pet.price %> €</p>
               <div class="d-flex justify-content-between mt-3">
-                <%= link_to pet_path(pet), method: :delete do %>
+                <%= link_to pet_path(pet), method: :delete, data: {confirm: "Really dude ? You wanna delete this cute pet ? 😲"} do %>
                 <i class="fas fa-trash-alt"></i>
                 <% end %>
                 <%= link_to switch_pets_status_path(pet), method: :patch do %>

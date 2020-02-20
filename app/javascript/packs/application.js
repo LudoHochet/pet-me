@@ -29,10 +29,12 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initUserMapBox } from '../plugins/init_user_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
+  initUserMapBox();
   initMapbox();
   loadDynamicBannerText();
 });

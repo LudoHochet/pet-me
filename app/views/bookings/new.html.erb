@@ -3,12 +3,12 @@
 <div class="form-container">
   <h1>Booking</h1>
   <%= simple_form_for [ @pet, @booking ] do |f| %>
-    <%= f.input :start_date, as: :text, input_html: {value: "2020-02-21"} %>
-    <%= f.input :end_date, as: :text, input_html: {value: "2020-02-24"} %>
+    Start date YYYY-MM-DD
+    <%= f.input_field :start_date, as: :string, class: 'form-control datepicker' %>
+    End date YYYY-MM-DD
+    <%= f.input_field :end_date, as: :string, class: 'form-control datepicker' %>
     <%= f.submit "Submit review", class: "btn btn-primary" %>
   <% end %>
 
 </div>
 
-
-<%= link_to "New booking 1", pet_bookings_path %>

@@ -2,21 +2,29 @@
   <h2> Welcome on your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
 
+
+
 <% @my_rented_pets.each do |rent| %>
   <% if rent.status == "pending" %>
-        <div class="col-sm-8">
-          <div class="alert-warning">
-            <i class="fas fa-exclamation-circle text-warning"></i>
-              <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-              <%= link_to "accept", switch_bookings_accept_path(rent), method: :patch %>
-              <%= link_to "deny", switch_bookings_deny_path(rent), method: :patch %>
+        <div class=container>
+          <div class="alert-warning  p-3 m-3 text-center">
+            <div class="d-flex justify-content-around align-items-center">
+              <div class="texte-alerte">
+              <i class="fas fa-exclamation-circle text-warning"></i>
+                <strong><%= link_to "#{rent.user.first_name}", user_path(rent.user) %></strong> would like to rent <strong><%= rent.pet.name %></strong>
+                from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                <br>
+              </div>
+              <div class="boutons">
+                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch %>
+                <br>
+                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted", method: :patch %>
+              </div>
+            </div>
           </div>
         </div>
   <% end %>
 <% end %>
-
-
 
 
 
@@ -28,7 +36,11 @@
         <div class="row">
           <% @pets.each do |pet| %>
           <div class="card-product mt-3 mr-3">
-            <img src="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+            <% if pet.photos.attached? %>
+              <%= cl_image_tag pet.photos.first.key %>
+            <% else %>
+              <%= image_tag "pet-1" %>
+            <% end  %>
             <div class="card-product-infos">
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
               <p> <%= pet.price %> €</p>

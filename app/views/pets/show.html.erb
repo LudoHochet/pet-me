@@ -6,6 +6,7 @@
     </nav>
 
   <div class="photo">
+    <% if @pet.photos.attached? %>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -24,6 +25,9 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    <% else %>
+      <%= image_tag "pet-1.png" %>
+    <% end %>
   </div>
 
   <div class="description">
@@ -45,7 +49,7 @@
           </dd>
         <% end %>
       </dl>
-      <p><%= link_to "Pick a date if you want to pet me" %></p>
+      <p><%= link_to "Pick a date if you want to pet me",  new_pet_booking_path(@pet) %></p>
     </div>
   </div>
 

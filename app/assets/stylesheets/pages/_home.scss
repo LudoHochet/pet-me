@@ -1,1 +1,5 @@
-// Specific CSS for your home-page
+.homewrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}// Specific CSS for your home-page

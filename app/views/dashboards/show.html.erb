@@ -7,7 +7,7 @@
         <div class="col-sm-8">
           <div class="alert-warning">
             <i class="fas fa-exclamation-circle text-warning"></i>
-              <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
+              <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
               <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
               <%= link_to "accept", switch_bookings_accept_path(rent), method: :patch %>
               <%= link_to "deny", switch_bookings_deny_path(rent), method: :patch %>
@@ -75,27 +75,26 @@
           <% if rent.status == "deny" %>
             <li>
               <i class="fas fa-times-circle text-danger"></i>
-              Refuse <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
+              Refuse <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
               <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
             </li>
 
-            <% end %>
-            <% end %>
-            <br>
+          <% end %>
+        <% end %>
+      <br>
 
 
       <h5>Accepted</h5>
         <% @my_rented_pets.each do |rent| %>
           <% if rent.status == "accept" %>
-
             <li>
               <i class="fas fa-check-circle text-success"></i>
-              Rented <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
+              Rented <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
               <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
             </li>
-            <% end %>
-            <% end %>
-          </div>
+          <% end %>
+        <% end %>
+      </div>
         </div>
 
         <div class="container mt-4">

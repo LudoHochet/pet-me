@@ -13,9 +13,11 @@
                 from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 <br>
               </div>
+
               <div class="boutons d-flex justify-content-end align-items-center">
-                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted mr-5", method: :patch, data: { confirm: "Are you sure to refuse this reservation ?" } %>
-                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch, data: { confirm: "Thank you, we will inform #{rent.user.first_name} that you accept the reservation" } %>
+                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted mr-5", method: :patch, remote: true, data: { confirm: "Are you sure to refuse this reservation ?" } %>
+                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch, remote: true, data: { confirm: "Thank you, we will inform #{rent.user.first_name} that you accept the reservation" } %>
+
               </div>
             </div>
           </div>
@@ -40,10 +42,10 @@
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
               <p> <%= pet.price %> €</p>
               <div class="d-flex justify-content-between mt-3">
-                <%= link_to pet_path(pet), method: :delete, data: {confirm: "Really dude ? You wanna delete this cute pet ? 😲"} do %>
+                <%= link_to pet_path(pet), method: :delete, remote: true, data: {confirm: "Really dude ? You wanna delete this cute pet ? 😲"} do %>
                 <i class="fas fa-trash-alt"></i>
                 <% end %>
-                <%= link_to switch_pets_status_path(pet), method: :patch do %>
+                <%= link_to switch_pets_status_path(pet), method: :patch, remote: true do %>
                 <div class="custom-control custom-switch">
                   <input
                   type="checkbox"

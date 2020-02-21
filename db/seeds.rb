@@ -33,50 +33,49 @@ puts "Finished!"
 
 
 puts "Creating pets..."
+file12 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/09/14/cover-r4x3w1000-59ba79b28b44f-naruto.jpg')
+file13= URI.open('https://ici.exploratv.ca/upload/site/post/picture/784/macaque-950-784.1578492213.jpg')
+pet2 = Pet.new(name: "Fonzie", description: "Singe très affecteux et très calme", species: "monkey", price: "80€")
+pet2.photos.attach(io: file12, filename: 'coco.png', content_type: 'image/png')
+pet2.photos.attach(io: file13, filename: 'coco.png', content_type: 'image/png')
+pet2.user = user5
+
 file2 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/03/29/cover-r4x3w1000-58dbbd655242b-capture-d-e-cran-2017-03-29-a-15-55-40.png')
 file3 = URI.open('https://www.sciencesetavenir.fr/assets/img/2020/01/17/cover-r4x3w1000-5e21bf77a1547-chartreux-3298051-1920.jpg')
-pet1 = Pet.new(name: "Patatra", description: "Chat blanc doux et calin", species: "cat", price: "600€")
+pet1 = Pet.new(name: "Patatra", description: "Chat blanc doux et calin", species: "cat", price: "15€")
 pet1.photos.attach(io: file2, filename: 'patatra.png', content_type: 'image/png')
 pet1.photos.attach(io: file3, filename: 'patatra2.png', content_type: 'image/png')
 pet1.user = user1
 
 file4 = URI.open('https://static.wamiz.fr/images/news/facebook/article/chien-os-fb-594cdb7b3d78d.jpg')
 file5 = URI.open('https://www.wanimo.com/veterinaire/wp-content/uploads/2011/06/images_articles_chien_chien-pate-blessee.jpg')
-pet2 = Pet.new(name: "Bouloche", description: "Chien ténébreux", species: "dog", price: "200€")
-pet2.photos.attach(io: file4, filename: 'bouloche.png', content_type: 'image/png')
-pet2.photos.attach(io: file5, filename: 'bouloche2.png', content_type: 'image/png')
-pet2.user = user2
+pet3 = Pet.new(name: "Bouloche", description: "Chien ténébreux", species: "dog", price: "25€")
+pet3.photos.attach(io: file4, filename: 'bouloche.png', content_type: 'image/png')
+pet3.photos.attach(io: file5, filename: 'bouloche2.png', content_type: 'image/png')
+pet3.user = user2
 
-file6 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Mouse-19-Dec-2004.jpg/520px-Mouse-19-Dec-2004.jpg')
-file7 = URI.open('https://produit-antinuisible.com/img/cms/souris-grise-souris-domestique.jpg')
-pet3 = Pet.new(name: "Wanchi", description: "Souris verte qui aime courir dans l'herbe", species: "mouse", price: "50€")
-pet3.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
-pet3.photos.attach(io: file7, filename: 'wanchi2.png', content_type: 'image/png')
-pet3.user = user3
+file11 = URI.open('https://images.pexels.com/photos/2213575/pexels-photo-2213575.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+pet4 = Pet.new(name: "Popeye", description: "s'il ne dort pas, il mange..", species: "monkey", price: "110€")
+pet4.photos.attach(io: file11, filename: 'coco.png', content_type: 'image/png')
+pet4.user = user5
 
-file8 = URI.open('https://static.actu.fr/uploads/2019/05/vache-Pixabay-854x528.jpg')
-file9 = URI.open('https://img.bfmtv.com/c/1256/708/a053005f3/fa2ae1e43b83eee10a09649.jpg')
-pet4 = Pet.new(name: "Coco", description: "Vache qui aime rire", species: "dog", price: "500€")
-pet4.user = user4
-pet4.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
-pet4.photos.attach(io: file9, filename: 'coco2.png', content_type: 'image/png')
+file6 = URI.open('https://images.pexels.com/photos/3687957/pexels-photo-3687957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+pet5 = Pet.new(name: "Wanchi", description: "Chat timide", species: "cat", price: "20€")
+pet5.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
+pet5.user = user3
+
+file8 = URI.open('https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+pet6= Pet.new(name: "Coco", description: "Chien qui aime se deguiser", species: "dog", price: "35€")
+pet6.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
+pet6.user = user4
+
+file10 = URI.open('https://images.pexels.com/photos/545063/pexels-photo-545063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+pet7 = Pet.new(name: "Roger", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "50€")
+pet7.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
+pet7.user = user5
 
 
-file10 = URI.open('https://www.zooplus.fr/magazine/wp-content/uploads/2018/10/american-pit-bull-terrier-im-grass-1024x682.jpg')
-file11= URI.open('https://storage.googleapis.com/stateless-lactualite-com/2016/05/pitbull-large.jpg')
-pet5 = Pet.new(name: "Cookie", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "150€")
-pet5.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
-pet5.photos.attach(io: file11, filename: 'coco.png', content_type: 'image/png')
-pet5.user = user5
-
-file12 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/09/14/cover-r4x3w1000-59ba79b28b44f-naruto.jpg')
-file13= URI.open('https://ici.exploratv.ca/upload/site/post/picture/784/macaque-950-784.1578492213.jpg')
-pet6 = Pet.new(name: "Fonzie", description: "Singe très affecteux et très calme", species: "monkey", price: "450€")
-pet6.photos.attach(io: file12, filename: 'coco.png', content_type: 'image/png')
-pet6.photos.attach(io: file13, filename: 'coco.png', content_type: 'image/png')
-pet6.user = user5
-
-[ pet1, pet2, pet3, pet4, pet5, pet6 ].each do |pet|
+[ pet1, pet2, pet3, pet4, pet5, pet6, pet7 ].each do |pet|
   pet.save!
   puts "Created #{pet.name}"
 end
@@ -84,16 +83,16 @@ puts "Finished!"
 
 puts "Creating bookings..."
 booking1 = Booking.new(status: "deny", start_date: 20191208, end_date: 20191227)
-booking1.user = user2
+booking1.user = user3
 booking1.pet = pet1
 booking2 = Booking.new(status: "deny", start_date: 20191229, end_date: 20200110)
 booking2.user = user3
 booking2.pet = pet1
 booking3 = Booking.new(status: "accept", start_date: 20200201, end_date: 20200203)
-booking3.user = user4
+booking3.user = user5
 booking3.pet = pet1
 booking4 = Booking.new(status: "accept", start_date: 20200217, end_date: 20200219)
-booking4.user = user5
+booking4.user = user3
 booking4.pet = pet1
 booking5 = Booking.new(status: "pending", start_date: 20200120, end_date: 20200122)
 booking5.user = user1

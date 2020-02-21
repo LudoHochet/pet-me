@@ -2,23 +2,22 @@
   <h2> Welcome on your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
 
-
-
 <% @my_rented_pets.each do |rent| %>
   <% if rent.status == "pending" %>
         <div class=container>
           <div class="alert-warning  p-3 m-3 text-center">
             <div class="d-flex justify-content-around align-items-center">
               <div class="texte-alerte">
-              <i class="fas fa-exclamation-circle text-warning"></i>
+              <i class="fas fa-exclamation-circle text-warning mr-3"></i>
                 <strong><%= link_to "#{rent.user.first_name}", user_path(rent.user) %></strong> would like to rent <strong><%= rent.pet.name %></strong>
                 from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 <br>
               </div>
-              <div class="boutons">
-                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch, remote: true %>
-                <br>
-                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted", method: :patch, remote: true %>
+
+              <div class="boutons d-flex justify-content-end align-items-center">
+                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted mr-5", method: :patch, remote: true, data: { confirm: "Are you sure to refuse this reservation ?" } %>
+                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch, remote: true, data: { confirm: "Thank you, we will inform #{rent.user.first_name} that you accept the reservation" } %>
+
               </div>
             </div>
           </div>
@@ -26,11 +25,9 @@
   <% end %>
 <% end %>
 
-
-
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 top">
       <div class="dashboard-pets">
         <h3>My pets</h3>
         <div class="row">
@@ -66,7 +63,6 @@
           </div>
           <% end %>
         </div>
-        <%= link_to "Add a pet", new_pet_path, class: "btn btn-flat mt-3 mb-3" %>
       </div>
 
     </div>
@@ -78,40 +74,36 @@
 
         <div class="container mt-3">
           <div class="dashboard-rented mb-3">
-            <h3>My booking requests</h3>
+            <h3>My leasings</h3>
           </div>
-          <div class="card-rented mt-3">
+        <div class="card-rented mt-3">
+          <h5>Accepted leasings </h5>
+            <% @my_rented_pets.each do |rent| %>
+              <% if rent.status == "accept" %>
+                <li>
+                  <i class="fas fa-check-circle text-success"></i>
+                  <strong><%= rent.pet.name %></strong> rented to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> -
+                  <%= rent.start_date.strftime("%m/%d") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                </li>
+              <% end %>
+            <% end %>
 
-      <h5>denied</h5>
-        <% @my_rented_pets.each do |rent| %>
-          <% if rent.status == "deny" %>
-            <li>
-              <i class="fas fa-times-circle text-danger"></i>
-              Refuse <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-            </li>
-
-          <% end %>
-        <% end %>
-      <br>
-
-
-      <h5>Accepted</h5>
-        <% @my_rented_pets.each do |rent| %>
-          <% if rent.status == "accept" %>
-            <li>
-              <i class="fas fa-check-circle text-success"></i>
-              Rented <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-            </li>
-          <% end %>
-        <% end %>
-      </div>
+        <br>
+          <h5>Denied leasings</h5>
+            <% @my_rented_pets.each do |rent| %>
+              <% if rent.status == "deny" %>
+                <li>
+                  <i class="fas fa-times-circle text-danger"></i>
+                  <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> wanted to rent <strong><%= rent.pet.name %></strong> -
+                  <%= rent.start_date.strftime("%m/%d") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                </li>
+              <% end %>
+            <% end %>
         </div>
-
+          </div>
         <div class="container mt-4">
           <div class="dashboard-bookings">
-            <h3>My own bookings</h3>
+            <h3>My rentals</h3>
           </div>
 
           <div class="card-bookings mt-3">
@@ -120,10 +112,11 @@
               <% if booking.status %>
               <i class="fas fa-check-circle"></i>
               <% end %>
-              <%= @user.first_name %> pet
-              <%= booking.pet.name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
+              pet <strong><%= booking.pet.name %> </strong>
+              - <%= booking.pet.user.first_name %>
+              - <%= booking.start_date.strftime("%m/%d") %>
               to <%= booking.end_date.strftime("%m/%d/%Y") %>
-              from <%= booking.pet.user.first_name %>
+
             </li>
             <% end %>
           </div>
@@ -131,7 +124,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 

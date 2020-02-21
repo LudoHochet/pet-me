@@ -92,20 +92,23 @@ img {
 
 .card-rented {
   overflow: hidden;
-  height: 200px;
+  min-height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 800px;
+  width: auto;
   padding: 30px;
+  list-style:none;
 }
 
 .card-bookings {
   overflow: hidden;
-  height: 200px;
+  min-height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 800px;
+  width: auto;
   padding: 30px;
+  list-style:none;
+  line-height: 2;
 }
 
 

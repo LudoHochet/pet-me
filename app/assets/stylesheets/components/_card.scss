@@ -114,15 +114,11 @@ body {
   .card-pet {
 
     width: 650px;
-    // height: 375px;
     position: absolute;
     background: white;
-    margin: 0 auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     transition: all 0.3s;
+    left: 30%;
 
     &:hover {
 

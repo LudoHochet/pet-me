@@ -18,12 +18,20 @@ class PetsController < ApplicationController
       end
     end
 
-    if params[:query].present?
-      sql_query = "species ILIKE :query"
-      @pets = Pet.where(sql_query, query: "%#{params[:query]}%")
+    # if params[:query].present?
+    #   sql_query = "species ILIKE :query"
+    #   @pets = Pet.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @pets = Pet.all
+    # end
+
+    if params[:location].present?
+      location = Geocoder.search(params[:location]).first
+      @pets = Pet.near(location, 1)
     else
       @pets = Pet.all
     end
+
   end
 
   def show

@@ -57,7 +57,13 @@
                   checked
                   <% end %>
                   >
-                  <label class="custom-control-label" for="customSwitch1">availability</label>
+                  <label class="custom-control-label" for="customSwitch1">
+                    <% if pet.status %>
+                    available
+                    <% else %>
+                    disable
+                    <% end %>
+                    </label>
                 </div>
                 <% end %>
               </div>

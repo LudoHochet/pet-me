@@ -33,6 +33,13 @@ puts "Finished!"
 
 
 puts "Creating pets..."
+file12 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/09/14/cover-r4x3w1000-59ba79b28b44f-naruto.jpg')
+file13= URI.open('https://ici.exploratv.ca/upload/site/post/picture/784/macaque-950-784.1578492213.jpg')
+pet6 = Pet.new(name: "Fonzie", description: "Singe très affecteux et très calme", species: "monkey", price: "450€")
+pet6.photos.attach(io: file12, filename: 'coco.png', content_type: 'image/png')
+pet6.photos.attach(io: file13, filename: 'coco.png', content_type: 'image/png')
+pet6.user = user5
+
 file2 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/03/29/cover-r4x3w1000-58dbbd655242b-capture-d-e-cran-2017-03-29-a-15-55-40.png')
 file3 = URI.open('https://www.sciencesetavenir.fr/assets/img/2020/01/17/cover-r4x3w1000-5e21bf77a1547-chartreux-3298051-1920.jpg')
 pet1 = Pet.new(name: "Patatra", description: "Chat blanc doux et calin", species: "cat", price: "600€")
@@ -61,7 +68,6 @@ pet4.user = user4
 pet4.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
 pet4.photos.attach(io: file9, filename: 'coco2.png', content_type: 'image/png')
 
-
 file10 = URI.open('https://www.zooplus.fr/magazine/wp-content/uploads/2018/10/american-pit-bull-terrier-im-grass-1024x682.jpg')
 file11= URI.open('https://storage.googleapis.com/stateless-lactualite-com/2016/05/pitbull-large.jpg')
 pet5 = Pet.new(name: "Cookie", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "150€")
@@ -69,12 +75,6 @@ pet5.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
 pet5.photos.attach(io: file11, filename: 'coco.png', content_type: 'image/png')
 pet5.user = user5
 
-file12 = URI.open('https://www.sciencesetavenir.fr/assets/img/2017/09/14/cover-r4x3w1000-59ba79b28b44f-naruto.jpg')
-file13= URI.open('https://ici.exploratv.ca/upload/site/post/picture/784/macaque-950-784.1578492213.jpg')
-pet6 = Pet.new(name: "Fonzie", description: "Singe très affecteux et très calme", species: "monkey", price: "450€")
-pet6.photos.attach(io: file12, filename: 'coco.png', content_type: 'image/png')
-pet6.photos.attach(io: file13, filename: 'coco.png', content_type: 'image/png')
-pet6.user = user5
 
 [ pet1, pet2, pet3, pet4, pet5, pet6 ].each do |pet|
   pet.save!
@@ -84,16 +84,16 @@ puts "Finished!"
 
 puts "Creating bookings..."
 booking1 = Booking.new(status: "deny", start_date: 20191208, end_date: 20191227)
-booking1.user = user2
+booking1.user = user3
 booking1.pet = pet1
 booking2 = Booking.new(status: "deny", start_date: 20191229, end_date: 20200110)
 booking2.user = user3
 booking2.pet = pet1
 booking3 = Booking.new(status: "accept", start_date: 20200201, end_date: 20200203)
-booking3.user = user4
+booking3.user = user5
 booking3.pet = pet1
 booking4 = Booking.new(status: "accept", start_date: 20200217, end_date: 20200219)
-booking4.user = user5
+booking4.user = user3
 booking4.pet = pet1
 booking5 = Booking.new(status: "pending", start_date: 20200120, end_date: 20200122)
 booking5.user = user1

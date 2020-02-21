@@ -34,7 +34,14 @@ import { initUserMapBox } from '../plugins/init_user_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
-  initUserMapBox();
-  initMapbox();
-  loadDynamicBannerText();
+  if (document.getElementById("user-map")) {
+    initUserMapBox();
+  }
+  if (document.getElementById("map")) {
+    initMapbox();
+  }
+
+  if (document.getElementById("banner-typed-text")) {
+    loadDynamicBannerText();
+  }
 });

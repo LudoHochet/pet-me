@@ -3,19 +3,19 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
 
-  #   @user = current_user
-  #   @users = User.geocoded # returns flats with coordinates
+    @user = current_user
+    @users = User.geocoded # returns flats with coordinates
 
-  #   @users.each do |user|
+    @users.each do |user|
 
-  #     @markers = @users.map do |user|
-  #       {
-  #         lat: user.latitude,
-  #         lng: user.longitude,
-  #         infoWindow: render_to_string(partial: "info_window", locals: { user: user })
-  #     }
-  #   end
-  # end
+      @markers = @users.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+      }
+    end
+  end
   end
 
   def show

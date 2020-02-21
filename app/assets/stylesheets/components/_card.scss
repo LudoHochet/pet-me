@@ -82,6 +82,7 @@ img {
 
 .card-product a {
   color: #BC4E9C;
+  text-decoration: none;
 }
 
 .card-product .card-product-infos {
@@ -263,7 +264,10 @@ body {
 
 }
 
-
+.custom-control-label {
+  color: grey;
+  font-size: 12px;
+}
 
 
 

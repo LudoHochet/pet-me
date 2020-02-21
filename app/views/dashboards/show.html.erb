@@ -1,5 +1,5 @@
-<div class="dashboard-title text-center mt-3">
-  <h2> Welcome on your dashboard <strong><%= @user.first_name %></strong></h2>
+<div class="dashboard-title text-center mt-5 mb-3">
+  <h2> Welcome to your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
 
 <% @my_rented_pets.each do |rent| %>
@@ -42,8 +42,8 @@
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
               <p> <%= pet.price %> €</p>
               <div class="d-flex justify-content-between mt-3">
-                <%= link_to pet_path(pet), method: :delete, remote: true, data: {confirm: "Really dude ? You wanna delete this cute pet ? 😲"} do %>
-                <i class="fas fa-trash-alt"></i>
+                <%= link_to pet_path(pet), method: :delete, data: {confirm: "Really dude ? You wanna delete this cute pet ? 😲"} do %>
+                <!-- <i class="fas fa-trash-alt"></i> -->
                 <% end %>
                 <%= link_to switch_pets_status_path(pet), method: :patch, remote: true do %>
                 <div class="custom-control custom-switch">
@@ -55,7 +55,7 @@
                   checked
                   <% end %>
                   >
-                  <label class="custom-control-label" for="customSwitch1"></label>
+                  <label class="custom-control-label" for="customSwitch1">availability</label>
                 </div>
                 <% end %>
               </div>

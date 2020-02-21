@@ -3,6 +3,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
 
+
     @user = current_user
     @users = User.geocoded # returns flats with coordinates
 
@@ -14,8 +15,15 @@ class PetsController < ApplicationController
           lng: user.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { user: user })
       }
+      end
     end
-  end
+
+    if params[:query].present?
+      sql_query = "species ILIKE :query"
+      @pets = Pet.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @pets = Pet.all
+    end
   end
 
   def show

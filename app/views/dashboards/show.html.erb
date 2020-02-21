@@ -2,15 +2,13 @@
   <h2> Welcome on your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
 
-
-
 <% @my_rented_pets.each do |rent| %>
   <% if rent.status == "pending" %>
         <div class=container>
           <div class="alert-warning  p-3 m-3 text-center">
             <div class="d-flex justify-content-around align-items-center">
               <div class="texte-alerte">
-              <i class="fas fa-exclamation-circle text-warning"></i>
+              <i class="fas fa-exclamation-circle text-warning mr-3"></i>
                 <strong><%= link_to "#{rent.user.first_name}", user_path(rent.user) %></strong> would like to rent <strong><%= rent.pet.name %></strong>
                 from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 <br>
@@ -26,8 +24,6 @@
   <% end %>
 <% end %>
 
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -39,7 +35,7 @@
             <% if pet.photos.attached? %>
               <%= cl_image_tag pet.photos.first.key %>
             <% else %>
-              <%= image_tag "pet-1" %>
+              <%= image_tag "pet-1.png" %>
             <% end  %>
             <div class="card-product-infos">
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
@@ -80,35 +76,31 @@
           <div class="dashboard-rented mb-3">
             <h3>My booking requests</h3>
           </div>
-          <div class="card-rented mt-3">
+        <div class="card-rented mt-3">
+          <h5>Accepted bookings </h5>
+            <% @my_rented_pets.each do |rent| %>
+              <% if rent.status == "accept" %>
+                <li>
+                  <i class="fas fa-check-circle text-success"></i>
+                  <strong><%= rent.pet.name %></strong> rented to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
+                  <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                </li>
+              <% end %>
+            <% end %>
 
-      <h5>denied</h5>
-        <% @my_rented_pets.each do |rent| %>
-          <% if rent.status == "deny" %>
-            <li>
-              <i class="fas fa-times-circle text-danger"></i>
-              Refuse <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-            </li>
-
-          <% end %>
-        <% end %>
-      <br>
-
-
-      <h5>Accepted</h5>
-        <% @my_rented_pets.each do |rent| %>
-          <% if rent.status == "accept" %>
-            <li>
-              <i class="fas fa-check-circle text-success"></i>
-              Rented <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
-              <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
-            </li>
-          <% end %>
-        <% end %>
-      </div>
+        <br>
+          <h5>Denied bookings</h5>
+            <% @my_rented_pets.each do |rent| %>
+              <% if rent.status == "deny" %>
+                <li>
+                  <i class="fas fa-times-circle text-danger"></i>
+                  <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> wanted to rent <strong><%= rent.pet.name %></strong> from
+                  <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
+                </li>
+              <% end %>
+            <% end %>
         </div>
-
+          </div>
         <div class="container mt-4">
           <div class="dashboard-bookings">
             <h3>My own bookings</h3>
@@ -120,10 +112,10 @@
               <% if booking.status %>
               <i class="fas fa-check-circle"></i>
               <% end %>
-              <%= @user.first_name %> pet
-              <%= booking.pet.name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
+              pet
+              <%= booking.pet.name %> from <%= booking.pet.user.first_name %> from <%= booking.start_date.strftime("%m/%d/%Y") %>
               to <%= booking.end_date.strftime("%m/%d/%Y") %>
-              from <%= booking.pet.user.first_name %>
+
             </li>
             <% end %>
           </div>

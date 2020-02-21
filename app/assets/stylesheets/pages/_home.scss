@@ -9,3 +9,13 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }// Specific CSS for your home-page
+
+.searchbar-home {
+  position: relative;
+  top: -50px;
+}
+.form-home {
+  height: 50px;
+  width: 350px;
+}
+

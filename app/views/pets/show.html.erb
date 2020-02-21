@@ -37,6 +37,20 @@
       <p><%= @pet.description %></p>
       <div class="bookings">
         <br>
+
+
+
+<% if @pet.bookings.blank? %>
+    Be the first to leave a review for <%= @pet.name %>
+  <% else %>
+
+  <h4><%= @pet.name %> is very successful and has already been booked <%= @pet.bookings.count %> times !</h4>
+
+  <% end %>
+
+
+
+
         <h4><%= @pet.name %>'s bookings :</h4>
         <dl>
           <p>

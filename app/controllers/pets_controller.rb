@@ -3,20 +3,27 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
 
+
+    @user = current_user
+    @users = User.geocoded # returns flats with coordinates
+
+    @users.each do |user|
+
+      @markers = @users.map do |user|
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+      }
+      end
+    end
+
     if params[:query].present?
       sql_query = "species ILIKE :query"
       @pets = Pet.where(sql_query, query: "%#{params[:query]}%")
     else
       @pets = Pet.all
     end
-
-
-    # if params[:location].present?
-    #   sql_query = "name ILIKE :name"
-    #   @pets = Pet.where(sql_query, name: "%#{params[:name]}%")
-    # else
-    #   @pets = Pet.all
-    # end
   end
 
   def show

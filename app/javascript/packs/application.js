@@ -29,10 +29,19 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initUserMapBox } from '../plugins/init_user_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
-  initMapbox();
-  loadDynamicBannerText();
+  if (document.getElementById("user-map")) {
+    initUserMapBox();
+  }
+  if (document.getElementById("map")) {
+    initMapbox();
+  }
+
+  if (document.getElementById("banner-typed-text")) {
+    loadDynamicBannerText();
+  }
 });

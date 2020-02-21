@@ -1,0 +1,8 @@
+<h6 class="popup-name"><%= user.first_name %> <%= user.last_name %></h6>
+<p class="popup-address"><%= user.address %></p>
+<div class="popup-pet">
+  <% user.pets.each do |pet| %>
+    <%= link_to "#{pet.name}", pet_path(pet) %>
+    <%= pet.price %> <span>€</span>
+  <% end %>
+</div>

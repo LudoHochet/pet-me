@@ -14,4 +14,9 @@
 
 a {
   color:$pink;
+
+  &:hover {
+    text-decoration: none;
+    color:$pink;
+  }
 }

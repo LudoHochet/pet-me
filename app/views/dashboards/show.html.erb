@@ -14,9 +14,8 @@
                 <br>
               </div>
               <div class="boutons d-flex justify-content-end align-items-center">
-                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted mr-5", method: :patch %>
-                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch %>
-
+                <%= link_to "Refuse", switch_bookings_deny_path(rent), class: "text-muted mr-5", method: :patch, data: { confirm: "Are you sure to refuse this reservation ?" } %>
+                <%= link_to "Accept", switch_bookings_accept_path(rent), class: "btn btn-success", method: :patch, data: { confirm: "Thank you, we will inform #{rent.user.first_name} that you accept the reservation" } %>
               </div>
             </div>
           </div>
@@ -81,7 +80,7 @@
               <% if rent.status == "accept" %>
                 <li>
                   <i class="fas fa-check-circle text-success"></i>
-                  <strong><%= rent.pet.name %></strong> rented to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
+                  <strong><%= rent.pet.name %></strong> rented to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> -
                   <%= rent.start_date.strftime("%m/%d") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 </li>
               <% end %>
@@ -93,7 +92,7 @@
               <% if rent.status == "deny" %>
                 <li>
                   <i class="fas fa-times-circle text-danger"></i>
-                  <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> wanted to rent <strong><%= rent.pet.name %></strong> from
+                  <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> wanted to rent <strong><%= rent.pet.name %></strong> -
                   <%= rent.start_date.strftime("%m/%d") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 </li>
               <% end %>
@@ -111,8 +110,9 @@
               <% if booking.status %>
               <i class="fas fa-check-circle"></i>
               <% end %>
-              pet
-              <%= booking.pet.name %> from <%= booking.pet.user.first_name %> from <%= booking.start_date.strftime("%m/%d") %>
+              pet <strong><%= booking.pet.name %> </strong>
+              - <%= booking.pet.user.first_name %>
+              - <%= booking.start_date.strftime("%m/%d") %>
               to <%= booking.end_date.strftime("%m/%d/%Y") %>
 
             </li>

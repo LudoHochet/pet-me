@@ -24,6 +24,14 @@ class PetsController < ApplicationController
     else
       @pets = Pet.all
     end
+
+    # if params[:location].present?
+    #   location = Geocoder.search(params[:location]).first
+    #   @pets = Pet.near(location, 1)
+    # else
+    #   @pets = Pet.all
+    # end
+
   end
 
   def show

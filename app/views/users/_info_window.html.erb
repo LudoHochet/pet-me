@@ -1,8 +1,8 @@
-<h3><%= user.first_name %> <%= user.last_name %></h3>
-<h4><%= user.address %></h4>
-<h5>
-  <% user.pets.each do |pet| %>
-    <%= pet.name %>
-    <%= pet.price %> <span>€</span>
-  <% end %>
-</h5>
+<h6 class="popup-name"><%= user.first_name %> <%= user.last_name %></h6>
+<p class="popup-address"><%= user.address %></p>
+<!-- <h5> -->
+  <%# user.pets.each do |pet| %>
+    <%#= pet.name %>
+    <%#= pet.price %> <!-- <span>€</span> -->
+  <%# end %>
+<!-- </h5> -->

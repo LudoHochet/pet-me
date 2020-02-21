@@ -33,37 +33,17 @@
     <div class="description">
       <h2><%= @pet.name %></h2>
       <h4><%= @pet.species %></h4>
-      <h1><%= @pet.price %>€</h1>
+      <h1><%= @pet.price %>€/day</h1>
       <p><%= @pet.description %></p>
+      <p>This fabulous pet belongs to  <%= link_to "#{@pet.user.first_name}" " #{ @pet.user.last_name}", user_path(@pet.user) %></p>
+
       <div class="bookings">
         <br>
-
-
-
-<% if @pet.bookings.blank? %>
-    Be the first to leave a review for <%= @pet.name %>
-  <% else %>
-
-  <h4><%= @pet.name %> is very successful and has already been booked <%= @pet.bookings.count %> times !</h4>
-
-  <% end %>
-
-
-
-
-        <h4><%= @pet.name %>'s bookings :</h4>
-        <dl>
-          <p>
-            Too bad, i'm already booked 😔
-          </p>
-          <% @pet.bookings.each do |booking| %>
-            <dd>
-              ...from <%= booking.start_date.day %>/<%= booking.start_date.month %>/<%= booking.start_date.year %>
-              until <%= booking.end_date.day %>/<%= booking.end_date.month %>/<%= booking.end_date.year %>
-            </dd>
-          <% end %>
-        </dl>
-        <p><%= link_to "Pick a date if you want to pet me",  new_pet_booking_path(@pet) %></p>
+      <% if @pet.bookings.blank? %>
+        <p> <%= @pet.name %> hes not been rented yet</h4>
+      <% else %>
+        <p> <%= @pet.name %> has already been booked <%= @pet.bookings.count %> times </p>
+      <% end %>
       </div>
     </div>
   </div>

@@ -85,7 +85,8 @@
             <h3>My leasings</h3>
           </div>
         <div class="card-rented mt-3">
-          <h5>Accepted leasings </h5>
+          <h5>Accepted</h5>
+          <br>
             <% @my_rented_pets.each do |rent| %>
               <% if rent.status == "accept" %>
                 <li>
@@ -97,7 +98,8 @@
             <% end %>
 
         <br>
-          <h5>Denied leasings</h5>
+          <h5>Denied</h5>
+          <br>
             <% @my_rented_pets.each do |rent| %>
               <% if rent.status == "deny" %>
                 <li>

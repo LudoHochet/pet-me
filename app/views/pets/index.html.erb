@@ -6,9 +6,12 @@
 <div class="search-form-control form-group d-flex">
 
     <%= form_tag pets_path, method: :get do %>
-    <%= text_field_tag :query, params[:query],
+    <%= text_field_tag :species, params[:species],
     class: "form-control",
       placeholder: "Find by species" %>
+    <%= text_field_tag :name, params[:name],
+    class: "form-control",
+      placeholder: "Find by name" %>
       <%= submit_tag "Search", class: "btn btn-flat" %>
       <% end %>
     </div>

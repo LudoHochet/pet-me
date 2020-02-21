@@ -74,10 +74,10 @@
 
         <div class="container mt-3">
           <div class="dashboard-rented mb-3">
-            <h3>My booking requests</h3>
+            <h3>My leasings</h3>
           </div>
         <div class="card-rented mt-3">
-          <h5>Accepted bookings </h5>
+          <h5>Accepted leasings </h5>
             <% @my_rented_pets.each do |rent| %>
               <% if rent.status == "accept" %>
                 <li>
@@ -89,7 +89,7 @@
             <% end %>
 
         <br>
-          <h5>Denied bookings</h5>
+          <h5>Denied leasings</h5>
             <% @my_rented_pets.each do |rent| %>
               <% if rent.status == "deny" %>
                 <li>
@@ -103,7 +103,7 @@
           </div>
         <div class="container mt-4">
           <div class="dashboard-bookings">
-            <h3>My own bookings</h3>
+            <h3>My rentals</h3>
           </div>
 
           <div class="card-bookings mt-3">

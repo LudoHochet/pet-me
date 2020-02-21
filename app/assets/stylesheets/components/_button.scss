@@ -15,3 +15,12 @@
   }
 }
 
+.alink {
+  color: $pink;
+  border: 0.5px solid $pink;
+  opacity: 0.8;
+   &:hover {
+    opacity: 1;
+    color: $pink;
+  }
+}

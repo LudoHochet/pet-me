@@ -10,7 +10,15 @@
       </div>
 
       </div>
-    <div class="container">
+    </div>
+  </div>
+
+  <div class="container mx-auto">
+  <div class="home-title text-center mt-4">
+    <h3> Some of our fabulous <strong>pets</strong></h3>
+  </div>
+  <br>
+      <div class="container">
           <div class="my-5">
             <%= form_tag pets_path, method: :get do %>
             <div class="form-inline d-flex justify-content-center">
@@ -24,14 +32,6 @@
               <% end %>
             </div>
           </div>
-    </div>
-  </div>
-
-  <div class="container mx-auto">
-  <div class="home-title text-center mt-4">
-    <h3> Some of our fabulous <strong>pets</strong></h3>
-  </div>
-  <br>
     <div class="homewrapper">
       <% Pet.last(3).each do |pet| %>
       <div class="card-trip">

@@ -1,12 +1,12 @@
 <div class="form-container">
-  <h4 class="text-secondary">Share your passion :</h4>
-  <h1>Lease your pet!</h1>
+  <h4 class="text-secondary">Share your passion</h4>
+  <h1>Lease your pet !</h1>
       <%= simple_form_for @pet do |f| %>
-        <%= f.input :name, :label => "Name of your pet:" %>
-        <%= f.input :description, :label => "Tell us a few words about your pet:"  %>
+        <%= f.input :name, :label => "Name of your pet :", :placeholder => "Enter your pet name" %>
+        <%= f.input :description, :label => "Tell us a few words about your pet :", :placeholder => 'Cool pet, dynamic dog etc.'  %>
         <div class="d-flex">
           <div class="price-input mr-3">
-            <%= f.input :price, :label => "Daily rent (€):" %>
+            <%= f.input :price, :label => "Daily rent (€) :", :placeholder => "€" %>
           </div>
           <%= f.input :species, as: :radio_buttons, collection: ['cat', 'dog', 'monkey', 'rabbit'], wrapper: :vertical_collection_inline %>
         </div>

@@ -55,7 +55,7 @@ pet3.photos.attach(io: file5, filename: 'bouloche2.png', content_type: 'image/pn
 pet3.user = user2
 
 file6 = URI.open('https://images.pexels.com/photos/3687957/pexels-photo-3687957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-pet6 = Pet.new(name: "Wanchi", description: "Chat timide", species: "souris", price: "20€")
+pet6 = Pet.new(name: "Wanchi", description: "Chat timide", species: "cat", price: "20€")
 pet6.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
 pet6.user = user3
 

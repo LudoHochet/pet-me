@@ -1,6 +1,8 @@
-<div class="dashboard-title text-center mt-5 mb-3">
+<div class="dashboard-title text-center mt-4 mb-4">
   <h2> Welcome to your dashboard <strong><%= @user.first_name %></strong></h2>
 </div>
+
+<hr>
 
 <% @my_rented_pets.each do |rent| %>
   <% if rent.status == "pending" %>

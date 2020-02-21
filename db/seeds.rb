@@ -54,24 +54,28 @@ pet3.photos.attach(io: file4, filename: 'bouloche.png', content_type: 'image/png
 pet3.photos.attach(io: file5, filename: 'bouloche2.png', content_type: 'image/png')
 pet3.user = user2
 
+file11 = URI.open('https://images.pexels.com/photos/2213575/pexels-photo-2213575.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+pet4 = Pet.new(name: "Popeye", description: "s'il ne dort pas, il mange..", species: "monkey", price: "110€")
+pet4.photos.attach(io: file11, filename: 'coco.png', content_type: 'image/png')
+pet4.user = user5
+
 file6 = URI.open('https://images.pexels.com/photos/3687957/pexels-photo-3687957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-pet6 = Pet.new(name: "Wanchi", description: "Chat timide", species: "cat", price: "20€")
-pet6.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
-pet6.user = user3
+pet5 = Pet.new(name: "Wanchi", description: "Chat timide", species: "cat", price: "20€")
+pet5.photos.attach(io: file6, filename: 'wanchi.png', content_type: 'image/png')
+pet5.user = user3
 
 file8 = URI.open('https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-pet4 = Pet.new(name: "Coco", description: "Chien qui aime se deguiser", species: "dog", price: "35€")
-pet4.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
-pet4.user = user4
-
+pet6= Pet.new(name: "Coco", description: "Chien qui aime se deguiser", species: "dog", price: "35€")
+pet6.photos.attach(io: file8, filename: 'coco.png', content_type: 'image/png')
+pet6.user = user4
 
 file10 = URI.open('https://images.pexels.com/photos/545063/pexels-photo-545063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-pet5 = Pet.new(name: "Roger", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "50€")
-pet5.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
-pet5.user = user5
+pet7 = Pet.new(name: "Roger", description: "Chien très affectueux mais un peu jaloux", species: "dog", price: "50€")
+pet7.photos.attach(io: file10, filename: 'coco.png', content_type: 'image/png')
+pet7.user = user5
 
 
-[ pet1, pet2, pet3, pet4, pet5, pet6 ].each do |pet|
+[ pet1, pet2, pet3, pet4, pet5, pet6, pet7 ].each do |pet|
   pet.save!
   puts "Created #{pet.name}"
 end

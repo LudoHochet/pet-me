@@ -11,7 +11,7 @@
             <div class="d-flex justify-content-around align-items-center">
               <div class="texte-alerte">
               <i class="fas fa-exclamation-circle text-warning"></i>
-                <strong><%= rent.user.first_name %></strong> would like to rent <strong><%= rent.pet.name %></strong>
+                <strong><%= link_to "#{rent.user.first_name}", user_path(rent.user) %></strong> would like to rent <strong><%= rent.pet.name %></strong>
                 from <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
                 <br>
               </div>
@@ -39,7 +39,7 @@
             <% if pet.photos.attached? %>
               <%= cl_image_tag pet.photos.first.key %>
             <% else %>
-              <%= image_tag "pet-1" %>
+              <%= cl_image_tag "pet-1.png" %>
             <% end  %>
             <div class="card-product-infos">
               <h2><%= link_to pet.name.capitalize, pet_path(pet) %></h2>
@@ -87,27 +87,26 @@
           <% if rent.status == "deny" %>
             <li>
               <i class="fas fa-times-circle text-danger"></i>
-              Refuse <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
+              Refuse <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
               <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
             </li>
 
-            <% end %>
-            <% end %>
-            <br>
+          <% end %>
+        <% end %>
+      <br>
 
 
       <h5>Accepted</h5>
         <% @my_rented_pets.each do |rent| %>
           <% if rent.status == "accept" %>
-
             <li>
               <i class="fas fa-check-circle text-success"></i>
-              Rented <strong><%= rent.pet.name %></strong> to <%= rent.user.first_name %> from
+              Rented <strong><%= rent.pet.name %></strong> to <%= link_to "#{rent.user.first_name}", user_path(rent.user) %> from
               <%= rent.start_date.strftime("%m/%d/%Y") %> to <%= rent.end_date.strftime("%m/%d/%Y") %>
             </li>
-            <% end %>
-            <% end %>
-          </div>
+          <% end %>
+        <% end %>
+      </div>
         </div>
 
         <div class="container mt-4">

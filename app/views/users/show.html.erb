@@ -1,33 +1,39 @@
 
 <div class="profilecontainer">
-<div class="profilecolor">
-  <div class="profilephoto">
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
-    <% else %>
-      <%=image_tag "dog.jpg", class: "avatar-large" %>
-    <% end %>
+  <div class="profilecolor">
+    <div class="profilephoto">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+      <% else %>
+        <%=image_tag "dog-party.jpg", class: "avatar-large" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="userinfo">
+    <h1><%= @user.first_name %> <%=@user.last_name %></h1>
+    <br>
+    <h2><%= @user.first_name %> owns <%=  @user.pets.count%> pet ⬇️</h2>
+    <ul class="userpetslist">
+      <% @user.pets.each do |pet| %>
+        <li> <%= link_to pet.name.capitalize, pet_path(pet) %> which is a <%= pet.species %></li>
+      <% end %>
+    </ul>
+
+    <p>Top pet care !</p>
+    <p><%= @user.first_name %> is the coolest pet owner EVER !</p>
+    <p>Never seen such a cool person, thank you <%= @user.first_name %> !</p>
+
+    <div class="usernotes">
+      <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+    </div>
+  </div>
+
+  <div id="user-map"
+     style="width: 100%;
+     height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
-<div class="userinfo">
-  <h2><%= @user.first_name %> <%=@user.last_name %></h2>
-  <h5><%= @user.first_name %> has <%=  @user.pets.count%> pets:</h5>
-  <ul class="userpetslist">
-    <% @user.pets.each do |pet| %>
-      <li> <%= link_to pet.name.capitalize, pet_path(pet) %> (<%= pet.species %>)</li>
-    <% end %>
-  </ul>
-
-  <p><em>Top pet care ! </em></p>
-  <p><em><%= @user.first_name %> is the coolest pet owner EVER! </em></p>
-  <p><em>Never seen such a cool person, thank you <%= @user.first_name %> ! </em></p>
-  <div class="usernotes">
-    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-  </div>
-</div>
-
-
-
-  </div>
-</div>

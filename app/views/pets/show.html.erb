@@ -33,16 +33,19 @@
     <div class="description">
       <h2><%= @pet.name %></h2>
       <h4><%= @pet.species %></h4>
-      <h1><%= @pet.price %>€</h1>
+      <h1><%= @pet.price %> €</h1>
+      <br>
       <p><%= @pet.description %></p>
       <p>This fabulous pet belongs to <%= link_to "#{@pet.user.first_name} ""#{@pet.user.last_name}", user_path(@pet.user) %></p>
+      <br>
       <div class="bookings">
+      <br>
         <% if @pet.bookings.blank? %>
           <h4> Be the first to leave a review for <%= @pet.name %> </h4>
         <% else %>
           <p> <%= @pet.name %> has already been booked <%= @pet.bookings.count %> times </p>
         <% end %>
-        <p><%= link_to "Pick a date if you want to pet me",  new_pet_booking_path(@pet) %></p>
+        <p><%= link_to "Rent me", new_pet_booking_path(@pet), class: "btn btn-flat card" %></p>
       </div>
     </div>
   </div>
